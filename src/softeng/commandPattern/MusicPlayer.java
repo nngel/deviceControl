@@ -1,8 +1,11 @@
 package softeng.commandPattern;
 
+import java.util.LinkedList;
+
 public class MusicPlayer extends Device{
-    int volume;
-    int songIndex;
+    private int volume;
+    private int songIndex;
+    private LinkedList<LinkedList<String>> songlist = new LinkedList<>();
 
     public void setVolume(int volume) {
         this.volume = volume;
@@ -15,5 +18,11 @@ public class MusicPlayer extends Device{
     }
     public int getSongIndex() {
         return songIndex;
+    }
+
+    public void addPlaylist(String playlistName, LinkedList<String> songList) {
+        songList.addFirst(playlistName);
+        songlist.add(songList);
+        System.out.println("List index "+songlist.size());
     }
 }
