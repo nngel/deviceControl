@@ -1,13 +1,13 @@
 package softeng.commandPattern;
 
 public class Lights extends Device {
-    boolean power;
-    double brightness;
 
-    public void setBrightness(double brightness) {
+    int brightness;
+
+    public void setBrightness(int brightness) {
         this.brightness = brightness;
     }
-    public double getBrightness() {
+    public int getBrightness() {
         return brightness;
     }
 }
