@@ -1,4 +1,5 @@
 package softeng.commandPattern;
 
-public class RobotVacuum {
+public class RobotVacuum extends Device{
+    boolean fullbag;
 }
