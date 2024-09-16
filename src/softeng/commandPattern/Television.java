@@ -1,21 +1,33 @@
 package softeng.commandPattern;
 
-public class Television extends Device{
-    int channel;
-    int volume;
+public class Television extends Device implements Commands{
+    private int channel;
+    private int volume;
+
+   private final int _MAXCHANNEL = 100;
+   private final int _MAXVOLUME = 20;
 
     public Television() {
-        channel = 0;
+        channel = 1;
     }
 
     public void nextChannel() {
-        this.channel++;
+        setChannel(getChannel() + 1);
     }
     public void prevChannel() {
-        this.channel--;
+       setChannel(getChannel() - 1);
     }
     public void setChannel(int channel) {
-        this.channel = channel;
+
+        if (channel > _MAXCHANNEL) {
+            this.channel = 1;
+        }
+        else if (channel < 1) {
+            this.channel = _MAXCHANNEL;
+        }
+        else this.channel = channel;
+
+        System.out.println("TV channel: " + getChannel());
     }
     public int getChannel() {
         return channel;
@@ -26,5 +38,15 @@ public class Television extends Device{
     }
     public int getVolume() {
         return volume;
+    }
+
+    @Override
+    public void powerOFF() {
+        setPower(false);
+    }
+
+    @Override
+    public void powerON() {
+        setPower(true);
     }
 }

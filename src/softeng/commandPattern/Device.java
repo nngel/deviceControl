@@ -1,13 +1,10 @@
 package softeng.commandPattern;
 
 public class Device {
-    boolean power;
+    private boolean power;
 
-    public void powerON() {
-        this.power = true;
-    }
-    public void powerOFF() {
-        this.power = false;
+    public void setPower(boolean power) {
+        this.power = power;
     }
     public boolean getPower() {
         return this.power;
