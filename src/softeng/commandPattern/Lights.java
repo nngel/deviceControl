@@ -5,10 +5,11 @@ public class Lights extends Device implements Commands {
     private int brightness;
     private final int $MAXBRIGHTNESS;
 
-    public Lights(){
+    public Lights(String name){
         brightness = 0;
         $MAXBRIGHTNESS = 3;
 
+        setName(name);
         powerOFF();
     }
     public void setBrightness(int brightness){
@@ -45,4 +46,5 @@ public class Lights extends Device implements Commands {
     public void powerON() {
         setPower(true);
     }
+
 }

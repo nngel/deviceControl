@@ -5,7 +5,8 @@ public class ThermoStat extends Device implements Commands{
 
     private final int $MAXTEMPERATURE;
 
-    public ThermoStat() {
+    public ThermoStat(String name) {
+        setName(name);
         $MAXTEMPERATURE = 100;
     }
 

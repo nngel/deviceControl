@@ -7,12 +7,13 @@ public class Television extends Device implements Commands{
    private final int $CHANNELS;
    private final int $VOLUMES;
 
-    public Television() {
+    public Television(String name) {
         this.$CHANNELS = 100;
         this.$VOLUMES = 20;
         this.channel = 1;
         this.volume = 10;
         powerOFF();
+        setName(name);
     }
 
     public void nextChannel() {
