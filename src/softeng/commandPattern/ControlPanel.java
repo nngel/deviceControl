@@ -16,8 +16,15 @@ public class ControlPanel {
 
     public void list()
     {
+        StringBuilder sb = new StringBuilder();
+        sb.append(
+                """
+                i\tDevice Type\t\tDevice Name
+                ----------------------------------------
+                """);
         for (Device device : devices) {
-            System.out.println(device.getName());
+            sb.append(devices.indexOf(device)).append("\t").append(device.getClass().getSimpleName()).append("\t\t").append(device.getName()).append("\n");
         }
+        System.out.println(sb.toString());
     }
 }
