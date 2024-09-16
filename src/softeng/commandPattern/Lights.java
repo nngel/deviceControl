@@ -3,42 +3,33 @@ package softeng.commandPattern;
 public class Lights extends Device implements Commands {
 
     private int brightness;
+    private final int $MAXBRIGHTNESS;
 
     public Lights(){
         brightness = 0;
+        $MAXBRIGHTNESS = 3;
+
         powerOFF();
     }
+    public void setBrightness(int brightness){
+        if(getPower()) {
+            if (brightness > $MAXBRIGHTNESS) {
+                System.out.println("Brightness already maximum");
+            }
+            else if (brightness <= 0) {
+                System.out.println("Brightness already minimum");
+            }
+            else this.brightness = brightness;
+
+            System.out.println("Brightness set to " + getBrightness());
+        }
+        else System.out.println("Device Turned Off");
+    }
     public void increaseBrightness() {
-       if(getPower())
-       {
-           if(getBrightness() >= 3) {
-               System.out.println("Brightness Already Maximum");
-           }
-           else {
-               brightness++;
-               System.out.println("Brightness Increased. Light level: " + brightness);
-           }
-       }
-       else
-       {
-           System.out.println("Turn on the device first.");
-       }
+        setBrightness(getBrightness() + 1);
     }
     public void decreaseBrightness() {
-       if(getPower())
-       {
-           if(getBrightness() <= 1) {
-               System.out.println("Brightness Already Minimum");
-           }
-           else {
-               brightness--;
-               System.out.println("Brightness Decreased. Light level: " + brightness);
-           }
-       }
-       else
-       {
-           System.out.println("Turn on the device first.");
-       }
+        setBrightness(getBrightness() - 1);
     }
 
     public int getBrightness() {
