@@ -14,16 +14,27 @@ public class ControlPanel {
         devices.add(device);
     }
 
+    public Device getDevice(int index) {
+        return devices.get(index);
+    }
     public void list()
     {
         StringBuilder sb = new StringBuilder();
         sb.append(
                 """
-                i\tDevice Type\t\tDevice Name
+                i\tDevice Type\t\tPower State\t\tDevice Name
                 ----------------------------------------
                 """);
         for (Device device : devices) {
-            sb.append(devices.indexOf(device)).append("\t").append(device.getClass().getSimpleName()).append("\t\t").append(device.getName()).append("\n");
+            sb.append(devices.indexOf(device))
+                    .append("\t")
+                    .append(device.getClass().getSimpleName())
+                    .append((device.getClass().getSimpleName().equalsIgnoreCase("Lights") ? "\t" : ""))
+                    .append("\t\t")
+                    .append(device.getPower() ? "Power On" : "Power Off")
+                    .append("\t\t")
+                    .append(device.getName())
+                    .append("\n");
         }
         System.out.println(sb.toString());
     }

@@ -9,7 +9,7 @@ public class Lights extends Device implements Commands {
         brightness = 0;
         $MAXBRIGHTNESS = 3;
 
-        setName("\t"+name);
+        setName(name);
         powerOFF();
     }
     public void setBrightness(int brightness){
