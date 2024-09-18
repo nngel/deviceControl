@@ -43,7 +43,8 @@ public class Main
                                     3. Thermostats
                                     """);
                     System.out.print("Enter command: ");
-                    input = scan.nextLine().charAt(0);
+                    input = scan.next().charAt(0);
+                    scan.nextLine();
 
                     System.out.print("Enter Name for new Device: ");
                     String name = scan.nextLine();
@@ -59,76 +60,20 @@ public class Main
                     System.out.print("Select a Device [i]: ");
                     int selectedDevice = scan.nextInt();
 
+                    Device d1 = cp.getDevice(selectedDevice);
+
                     boolean loop2 = true;
                     while (loop2) {
-                        System.out.println("""
-                            List of Commands:
-                            1. Turn on
-                            2. Turn off""");
+                        d1.showInfo();
+                        System.out.println("Command List:\n" + d1.commandList() + "\n" + "x. exit");
+                        System.out.print("Enter command: ");
+                        char command = Character.toLowerCase(scan.next().charAt(0));
 
-                        String deviceType = cp.getDevice(selectedDevice).getClass().getSimpleName();
-                        switch (deviceType) {
-                            case "Lights" -> {
-                                System.out.println
-                                        (""" 
-                                            3. Increase Brightness
-                                            4. Decrease Brightness
-                                            """);
-
-                            }
-                            case "Television" -> {
-                                System.out.println("""
-                                    3. Next Channel
-                                    4. Previous Channel
-                                    5. Volume Up
-                                    6. Volume Down
-                                    """);
-                            }
-                            case "Thermostat" -> {
-                                System.out.println("""
-                                    3. Increase Temperature
-                                    4. Decrease Temperature
-                                    """);
-                            }
+                        if (Character.isDigit(command)) {
+                            d1.commandCode(Integer.parseInt(String.valueOf(command)));
                         }
-                        System.out.println("x. exit");
-                        System.out.println("Enter command: ");
-                        switch (Character.toLowerCase(scan.next().charAt(0))) {
-
-                            case '1' -> {
-                                switch(deviceType) {
-                                    case "Lights" -> ((Lights) cp.getDevice(selectedDevice)).powerON();
-                                    case "Television" -> ((Television) cp.getDevice(selectedDevice)).powerON();
-                                    case "ThrmoStat" -> ((ThermoStat) cp.getDevice(selectedDevice)).powerON();
-                                }
-                            }case '2' -> {
-                                switch(deviceType) {
-                                    case "Lights" -> ((Lights) cp.getDevice(selectedDevice)).powerOFF();
-                                    case "Television" -> ((Television) cp.getDevice(selectedDevice)).powerOFF();
-                                    case "ThrmoStat" -> ((ThermoStat) cp.getDevice(selectedDevice)).powerOFF();
-                                }
-                            }case '3' -> {
-                                switch(deviceType) {
-                                    case "Lights" -> ((Lights) cp.getDevice(selectedDevice)).increaseBrightness();
-                                    case "Television" -> ((Television) cp.getDevice(selectedDevice)).nextChannel();
-                                    case "ThrmoStat" -> ((ThermoStat) cp.getDevice(selectedDevice)).increase();
-                                }
-                            }case '4' -> {
-                                switch(deviceType) {
-                                    case "Lights" -> ((Lights) cp.getDevice(selectedDevice)).decreaseBrightness();
-                                    case "Television" -> ((Television) cp.getDevice(selectedDevice)).prevChannel();
-                                    case "ThrmoStat" -> ((ThermoStat) cp.getDevice(selectedDevice)).decrease();
-                                }
-                            }case '5' -> {
-                                if (deviceType.equals("Television")) {
-                                    ((Television) cp.getDevice(selectedDevice)).volumeUP();
-                                }
-                            }case '6' -> {
-                                if (deviceType.equals("Television")) {
-                                    ((Television) cp.getDevice(selectedDevice)).volumeDOWN();
-                                }
-                            }
-                            case 'x' -> loop2 = false;
+                        else if (command == 'x') {
+                            loop2 = false;
                         }
                     }
                 }
