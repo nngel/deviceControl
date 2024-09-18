@@ -69,15 +69,11 @@ public class Television extends Device implements Commands{
 
     @Override
     public void showInfo() {
-
-        String sb = "---------------------------" + "\n" +
-                "Device Name:\t" + getName() + "\n" +
-                "Channel:\t" + getChannel() + "\n" +
-                "Volume:\t" + getVolume() + "\n" +
-                "Power:\t" + (getPower() ? "Power On" : "Power Off") + "\n" +
-                "---------------------------";
-
-        System.out.println(sb);
+        String line = "---------------------------------";
+        System.out.println(line+"\n"
+                + "Device Name\t: " + getName() + "\n"+"Channel\t\t: " + (getPower() ? getChannel() : "--") + "\n"
+                + "Volume\t\t: " + (getPower() ? getVolume() : "--") + "\n"
+                + "Power\t\t: " + (getPower() ? "Turned ON" : "Turned OFF") + "\n"+line);
     }
 
     @Override
@@ -109,3 +105,5 @@ public class Television extends Device implements Commands{
                 6. Volume Down""";
     }
 }
+
+// nngel

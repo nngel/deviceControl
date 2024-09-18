@@ -7,6 +7,7 @@ public class ThermoStat extends Device implements Commands{
 
     public ThermoStat(String name) {
         setName(name);
+        temperature = 26;
         $MAXTEMPERATURE = 100;
     }
 
@@ -38,14 +39,10 @@ public class ThermoStat extends Device implements Commands{
 
     @Override
     public void showInfo() {
-
-        String sb = "---------------------------" + "\n" +
-                "Device Name:\t" + getName() + "\n" +
-                "Temperature:\t" + getTemperature() + "\n" +
-                "Power:\t" + getPower() + "\n" +
-                "---------------------------";
-
-        System.out.println(sb);
+        String line = "---------------------------------";
+        System.out.println(line+"\n"
+                +"Device Name\t: " + getName() + "\n"+"Temperature\t: " + (getPower() ? getTemperature() : "--") + " °C\n"
+                +"Power\t\t: " + (getPower() ? "Turned ON" : "Turned OFF") + "\n"+line);
     }
 
     @Override
@@ -73,4 +70,6 @@ public class ThermoStat extends Device implements Commands{
                 4. Decrease Temperature""";
     }
 }
+
+// nngel
 

@@ -24,3 +24,5 @@ public class Device {
     public void commandCode(int code) {}
     public String commandList() { return ""; }
 }
+
+// nngel

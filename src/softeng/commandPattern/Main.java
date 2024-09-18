@@ -22,6 +22,7 @@ public class Main
 
         boolean loop = true;
         while (loop) {
+            System.out.println();
             System.out.println
                     ("""
                             Menu:
@@ -58,27 +59,45 @@ public class Main
                 case '2' -> {
                     cp.list();
                     System.out.print("Select a Device [i]: ");
-                    int selectedDevice = scan.nextInt();
 
-                    Device d1 = cp.getDevice(selectedDevice);
+                    if(scan.hasNextInt())
+                    {
+                        int selectedDevice = scan.nextInt();
 
-                    boolean loop2 = true;
-                    while (loop2) {
-                        d1.showInfo();
-                        System.out.println("Command List:\n" + d1.commandList() + "\n" + "x. exit");
-                        System.out.print("Enter command: ");
-                        char command = Character.toLowerCase(scan.next().charAt(0));
-
-                        if (Character.isDigit(command)) {
-                            d1.commandCode(Integer.parseInt(String.valueOf(command)));
+                        if(selectedDevice >= cp.size() || selectedDevice < 0)
+                        {
+                            System.out.println("[c] Invalid Device");
                         }
-                        else if (command == 'x') {
-                            loop2 = false;
+                        else
+                        {
+                            Device d1 = cp.getDevice(selectedDevice);
+
+                            boolean loop2 = true;
+                            while (loop2) {
+                                d1.showInfo();
+                                System.out.println("Command List:\n" + d1.commandList() + "\n" + "x. exit");
+                                System.out.print("Enter command: ");
+                                char command = Character.toLowerCase(scan.next().charAt(0));
+
+                                if (Character.isDigit(command)) {
+                                    d1.commandCode(Integer.parseInt(String.valueOf(command)));
+                                }
+                                else if (command == 'x') {
+                                    loop2 = false;
+                                }
+                            }
                         }
                     }
+                    else {
+                        scan.next();
+                        System.out.println("[c] Invalid Command");
+                    }
                 }
-            case '5' -> loop = false;
+                case '3' -> cp.list();
+                case '5' -> loop = false;
             }
         }
+
+        System.out.println("Programmer: Edward Angel Lorica");
     }
 }

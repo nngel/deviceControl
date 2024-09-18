@@ -14,6 +14,10 @@ public class ControlPanel {
         devices.add(device);
     }
 
+    public int size() {
+        return devices.size();
+    }
+
     public Device getDevice(int index) {
         return devices.get(index);
     }
@@ -36,6 +40,8 @@ public class ControlPanel {
                     .append(device.getName())
                     .append("\n");
         }
-        System.out.println(sb.toString());
+        System.out.println(sb);
     }
 }
+
+// nngel

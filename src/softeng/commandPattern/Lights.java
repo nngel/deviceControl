@@ -6,7 +6,7 @@ public class Lights extends Device implements Commands {
     private final int $MAXBRIGHTNESS;
 
     public Lights(String name){
-        brightness = 0;
+        brightness = 2;
         $MAXBRIGHTNESS = 3;
 
         setName(name);
@@ -39,14 +39,10 @@ public class Lights extends Device implements Commands {
 
     @Override
     public void showInfo() {
-
-        String sb = "---------------------------" + "\n" +
-                "Device Name:\t" + getName() + "\n" +
-                "Brightness:\t" + getBrightness() + "\n" +
-                "Power:\t" + getPower() + "\n" +
-                "---------------------------";
-
-        System.out.println(sb);
+        String line = "---------------------------------";
+        System.out.println(line+"\n"
+                +"Device Name\t: " + getName() + "\n"+"Brightness\t: " + (getPower() ? getBrightness() : "--") + "\n"
+                +"Power\t\t: " + (getPower() ? "Turned ON" : "Turned OFF") + "\n"+line);
     }
 
     @Override
@@ -76,3 +72,5 @@ public class Lights extends Device implements Commands {
     }
 
 }
+
+// nngel
