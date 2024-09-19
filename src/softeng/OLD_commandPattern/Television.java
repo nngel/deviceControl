@@ -1,6 +1,6 @@
-package softeng.commandPattern;
+package softeng.OLD_commandPattern;
 
-public class Television extends Device implements Commands{
+public class Television extends Device{
     private int channel;
     private int volume;
 
@@ -8,12 +8,11 @@ public class Television extends Device implements Commands{
    private final int $VOLUMES;
 
     public Television(String name) {
+        super(name);
         this.$CHANNELS = 100;
         this.$VOLUMES = 20;
         this.channel = 1;
         this.volume = 10;
-        powerOFF();
-        setName(name);
     }
 
     public void nextChannel() {

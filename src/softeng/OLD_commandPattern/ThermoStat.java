@@ -1,12 +1,12 @@
-package softeng.commandPattern;
+package softeng.OLD_commandPattern;
 
-public class ThermoStat extends Device implements Commands{
+public class ThermoStat extends Device{
     int temperature;
 
     private final int $MAXTEMPERATURE;
 
     public ThermoStat(String name) {
-        setName(name);
+        super(name);
         temperature = 26;
         $MAXTEMPERATURE = 100;
     }

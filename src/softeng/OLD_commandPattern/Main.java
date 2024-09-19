@@ -1,4 +1,4 @@
-package softeng.commandPattern;
+package softeng.OLD_commandPattern;
 
 import java.util.Scanner;
 
