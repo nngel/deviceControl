@@ -65,5 +65,34 @@ public class Client {
 
         remoteHub.setCommand(tvChannelNext);
         remoteHub.pressButton();
+
+
+        Thermostat thermostat = new Thermostat();
+
+        Command thermostatON = new ThermostatOnCommand(thermostat);
+        Command thermostatOFF = new ThermostatOffCommand(thermostat);
+        Command thermostatIncrease = new ThermostatTemperatureIncreaseCommand(thermostat);
+        Command thermostatDecrease = new ThermostatTemperatureDecrease(thermostat);
+
+
+        remoteHub.setCommand(thermostatOFF);
+        remoteHub.pressButton();
+
+        remoteHub.setCommand(thermostatON);
+        remoteHub.pressButton();
+
+        remoteHub.setCommand(thermostatIncrease);
+        remoteHub.pressButton();
+        remoteHub.pressButton();
+
+        remoteHub.setCommand(thermostatDecrease);
+        remoteHub.pressButton();
+        remoteHub.pressButton();
+
+        remoteHub.setCommand(thermostatOFF);
+        remoteHub.pressButton();
+
+        remoteHub.setCommand(thermostatIncrease);
+        remoteHub.pressButton();
     }
 }

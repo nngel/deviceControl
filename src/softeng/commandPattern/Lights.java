@@ -11,7 +11,7 @@ public class Lights {
     }
     public void lightOff() {
         this.power = false;
-        System.out.println("Turning off lights");
+        System.out.println("Lights off");
     }
     public void lightOn() {
         this.power = true;
