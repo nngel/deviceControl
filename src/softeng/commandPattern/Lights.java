@@ -18,11 +18,17 @@ public class Lights {
         System.out.println("Lights on");
     }
     public void lightBrighter() {
-        brightness++;
-        System.out.println("Brightness set to: " + brightness);
+       if (power) {
+           brightness++;
+           System.out.println("Brightness set to: " + brightness);
+       }
+       else System.out.println("Can't Change Brightness (Device turned off).");
     }
     public void lightDarker() {
-        brightness--;
-        System.out.println("Brightness set to: " + brightness);
+       if (power) {
+           brightness--;
+           System.out.println("Brightness set to: " + brightness);
+       }
+       else System.out.println("Can't Change Brightness (Device turned off).");
     }
 }
