@@ -23,5 +23,47 @@ public class Client {
 
         remoteHub.setCommand(lightDarker);
         remoteHub.pressButton();
+
+        // Television
+
+        Television LivingRoomTelevision = new Television();
+        Command tvon = new TelevisionOnCommand(LivingRoomTelevision);
+        Command tvoff = new TelevisionOffCommand(LivingRoomTelevision);
+        Command tvChannelNext = new TelevisionChannelNextCommand(LivingRoomTelevision);
+        Command tvChannelPrevious = new TelevisionChannelPreviousCommand(LivingRoomTelevision);
+        Command tvVolumeUp = new TelevisionVolumeIncreaseCommand(LivingRoomTelevision);
+        Command tvVolumeDown  = new TelevisionVolumeDecreaseCommand(LivingRoomTelevision);
+
+
+        remoteHub.setCommand(tvoff);
+        remoteHub.pressButton();
+
+        remoteHub.setCommand(tvon);
+        remoteHub.pressButton();
+
+        remoteHub.setCommand(tvChannelNext);
+        remoteHub.pressButton();
+        remoteHub.pressButton();
+        remoteHub.pressButton();
+        remoteHub.pressButton();
+
+        remoteHub.setCommand(tvChannelPrevious);
+        remoteHub.pressButton();
+        remoteHub.pressButton();
+
+        remoteHub.setCommand(tvVolumeUp);
+        remoteHub.pressButton();
+        remoteHub.pressButton();
+
+        remoteHub.setCommand(tvVolumeDown);
+        remoteHub.pressButton();
+        remoteHub.pressButton();
+        remoteHub.pressButton();
+
+        remoteHub.setCommand(tvoff);
+        remoteHub.pressButton();
+
+        remoteHub.setCommand(tvChannelNext);
+        remoteHub.pressButton();
     }
 }

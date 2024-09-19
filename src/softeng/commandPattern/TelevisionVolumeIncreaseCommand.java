@@ -1,9 +1,9 @@
 package softeng.commandPattern;
 
-public class TelevisionVolumeUpCommand implements Command {
+public class TelevisionVolumeIncreaseCommand implements Command {
     private Television television;
 
-    public TelevisionVolumeUpCommand(Television television) {
+    public TelevisionVolumeIncreaseCommand(Television television) {
         this.television = television;
     }
 
