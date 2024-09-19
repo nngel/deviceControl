@@ -1,15 +1,15 @@
 package softeng.commandPattern;
 
-public class LightsDarkerCommand implements Command {
+public class LightsDimmerCommand implements Command {
 
     Lights lights;
 
-    public LightsDarkerCommand(Lights lights) {
+    public LightsDimmerCommand(Lights lights) {
         this.lights = lights;
     }
 
     @Override
     public void execute() {
-        lights.lightDarker();
+        lights.lightDimmer();
     }
 }

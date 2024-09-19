@@ -7,9 +7,6 @@ public class MusicPlayerSongNextCommand implements Command {
     public MusicPlayerSongNextCommand(MusicPlayer musicPlayer) {
         this.musicPlayer = musicPlayer;
     }
-    public void changeMusicPlayer(MusicPlayer musicPlayer) {
-        this.musicPlayer = musicPlayer;
-    }
 
     @Override
     public void execute() {

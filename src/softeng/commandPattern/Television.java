@@ -9,7 +9,7 @@ public class Television {
     public Television() {
         power = false;
         channel = 1;
-        volume = 1;
+        volume = 10;
     }
 
     public void tvOff() {

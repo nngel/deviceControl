@@ -8,7 +8,7 @@ public class MusicPlayer {
 
     public MusicPlayer() {
         power = false;
-        songIndex = 0;
+        songIndex = 1;
         volume = 10;
     }
 

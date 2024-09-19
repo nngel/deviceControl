@@ -11,7 +11,7 @@ public class Client {
         Lights livingRoom = new Lights();
         Command lightOFF = new LightsOffCommand(livingRoom);
         Command lightON = new LightsOnCommand(livingRoom);
-        Command lightDarker = new LightsDarkerCommand(livingRoom);
+        Command lightDarker = new LightsDimmerCommand(livingRoom);
         Command lightBright = new LightsBrighterCommand(livingRoom);
 
         remoteHub.setCommand(lightOFF);

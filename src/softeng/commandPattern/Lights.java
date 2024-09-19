@@ -24,7 +24,7 @@ public class Lights {
        }
        else System.out.println("Can't Change Brightness (Device turned off).");
     }
-    public void lightDarker() {
+    public void lightDimmer() {
        if (power) {
            brightness--;
            System.out.println("Brightness set to: " + brightness);

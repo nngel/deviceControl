@@ -8,10 +8,6 @@ public class MusicPlayerVolumeUpCommand implements Command {
         this.musicPlayer = musicPlayer;
     }
 
-    public void changeMusicPlayer(MusicPlayer musicPlayer) {
-        this.musicPlayer = musicPlayer;
-    }
-
     @Override
     public void execute() {
         musicPlayer.musicVolumeUP();

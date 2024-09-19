@@ -7,9 +7,6 @@ public class MusicPlayerVolumeDownCommand implements Command {
     public MusicPlayerVolumeDownCommand(MusicPlayer musicPlayer) {
         this.musicPlayer = musicPlayer;
     }
-    public void changeMusicPlayer(MusicPlayer musicPlayer) {
-        this.musicPlayer = musicPlayer;
-    }
 
     @Override
     public void execute() {

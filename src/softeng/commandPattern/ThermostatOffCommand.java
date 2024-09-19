@@ -8,10 +8,6 @@ public class ThermostatOffCommand implements Command {
         this.thermostat = thermostat;
     }
 
-    public void changeThermostat(Thermostat thermostat) {
-        this.thermostat = thermostat;
-    }
-
     @Override
     public void execute() {
         thermostat.thermostatOFF();
