@@ -2,14 +2,17 @@ package softeng.commandPattern;
 
 public class Client {
     public static void main(String[] args) {
-        Lights livingRoom = new Lights();
 
+        // Remote Hub
+        RemoteHub remoteHub = new RemoteHub();
+
+        // Lights
+
+        Lights livingRoom = new Lights();
         Command lightOFF = new LightsOffCommand(livingRoom);
         Command lightON = new LightsOnCommand(livingRoom);
         Command lightDarker = new LightsDarkerCommand(livingRoom);
         Command lightBright = new LightsBrighterCommand(livingRoom);
-
-        RemoteHub remoteHub = new RemoteHub();
 
         remoteHub.setCommand(lightOFF);
         remoteHub.pressButton();
@@ -25,6 +28,7 @@ public class Client {
         remoteHub.pressButton();
 
         // Television
+        System.out.println();
 
         Television LivingRoomTelevision = new Television();
         Command tvon = new TelevisionOnCommand(LivingRoomTelevision);
@@ -33,7 +37,6 @@ public class Client {
         Command tvChannelPrevious = new TelevisionChannelPreviousCommand(LivingRoomTelevision);
         Command tvVolumeUp = new TelevisionVolumeIncreaseCommand(LivingRoomTelevision);
         Command tvVolumeDown  = new TelevisionVolumeDecreaseCommand(LivingRoomTelevision);
-
 
         remoteHub.setCommand(tvoff);
         remoteHub.pressButton();
@@ -66,6 +69,8 @@ public class Client {
         remoteHub.setCommand(tvChannelNext);
         remoteHub.pressButton();
 
+        // Thermostat
+        System.out.println();
 
         Thermostat thermostat = new Thermostat();
 
@@ -73,7 +78,6 @@ public class Client {
         Command thermostatOFF = new ThermostatOffCommand(thermostat);
         Command thermostatIncrease = new ThermostatTemperatureIncreaseCommand(thermostat);
         Command thermostatDecrease = new ThermostatTemperatureDecrease(thermostat);
-
 
         remoteHub.setCommand(thermostatOFF);
         remoteHub.pressButton();
@@ -94,5 +98,45 @@ public class Client {
 
         remoteHub.setCommand(thermostatIncrease);
         remoteHub.pressButton();
+
+        // Music Player
+        System.out.println();
+
+        MusicPlayer musicPlayer = new MusicPlayer();
+        Command mpON = new MusicPlayerOnCommand(musicPlayer);
+        Command mpOFF = new MusicPlayerOffCommand(musicPlayer);
+        Command mpNext = new MusicPlayerSongNextCommand(musicPlayer);
+        Command mpPrev = new MusicPlayerSongPreviousCommand(musicPlayer);
+        Command mpVolUP = new MusicPlayerVolumeUpCommand(musicPlayer);
+        Command mpVolDown = new MusicPlayerVolumeDownCommand(musicPlayer);
+
+        remoteHub.setCommand(mpON);
+        remoteHub.pressButton();
+
+        remoteHub.setCommand(mpNext);
+        remoteHub.pressButton();
+        remoteHub.pressButton();
+        remoteHub.pressButton();
+
+        remoteHub.setCommand(mpPrev);
+        remoteHub.pressButton();
+        remoteHub.pressButton();
+
+        remoteHub.setCommand(mpVolUP);
+        remoteHub.pressButton();
+        remoteHub.pressButton();
+        remoteHub.pressButton();
+        remoteHub.pressButton();
+
+        remoteHub.setCommand(mpVolDown);
+        remoteHub.pressButton();
+        remoteHub.pressButton();
+
+        remoteHub.setCommand(mpOFF);
+        remoteHub.pressButton();
+
+        remoteHub.setCommand(mpNext);
+        remoteHub.pressButton();
+
     }
 }
